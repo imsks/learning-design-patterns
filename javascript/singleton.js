@@ -1,29 +1,47 @@
-let counter = 0
-let instance
+// let counter = 0
+// let instance
 
-class Counter {
-    constructor() {
-        if (instance) throw Error("Instance already defined")
-        instance = this
-    }
+// class Counter {
+//     constructor() {
+//         if (instance) throw Error("Instance already defined")
+//         instance = this
+//     }
 
-    getInstance() {
-        return this
-    }
+//     getInstance() {
+//         return this
+//     }
 
+//     increment() {
+//         return ++counter
+//     }
+
+//     decrement() {
+//         return --counter
+//     }
+
+//     getCount() {
+//         return counter
+//     }
+// }
+
+// const singletonCounter = Object.freeze(new Counter())
+
+let count = 0
+
+const counter = {
     increment() {
-        return ++counter
-    }
+        return ++count
+    },
 
     decrement() {
-        return --counter
-    }
+        return --count
+    },
 
     getCount() {
-        return counter
+        return count
     }
 }
 
-const singletonCounter = Object.freeze(new Counter())
+Object.freeze(counter)
 
-export default singletonCounter
+export default { counter }
